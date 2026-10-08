@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MET Plaza · Junín 800 · Recoleta · Proyección Airbnb · Distrito BA</title>
+<link href="https://fonts.googleapis.com/css2?family=Bakbak+One&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#2E5634;--green-dark:#1e3b22;--cream:#F2EFEB;--gold:#C9A84C;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:#222;}
+nav{background:var(--green-dark);padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between;height:50px;position:sticky;top:0;z-index:100;}
+.nav-logo{font-family:'Bakbak One',sans-serif;color:var(--gold);font-size:1rem;letter-spacing:1px;}
+.nav-links{display:flex;gap:1rem;}
+.nav-links a{color:rgba(255,255,255,0.88);text-decoration:none;font-size:0.72rem;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;}
+.hero{background:linear-gradient(135deg,var(--green-dark) 0%,var(--green) 60%,#3d7044 100%);color:white;padding:3rem 1.5rem 2.5rem;text-align:center;}
+.hero-badge{display:inline-block;background:rgba(201,168,76,0.2);border:1px solid var(--gold);color:var(--gold);font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;padding:0.25rem 0.75rem;border-radius:20px;margin-bottom:1.25rem;}
+.hero h1{font-family:'Bakbak One',sans-serif;font-size:1.6rem;margin-bottom:0.4rem;}
+.hero>p{color:rgba(255,255,255,0.85);font-size:0.85rem;margin-bottom:2rem;}
+.hero-units{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;}
+.unit-block{background:rgba(255,255,255,0.08);border:1px solid rgba(201,168,76,0.35);border-radius:12px;padding:1.1rem 1.5rem;min-width:200px;}
+.unit-block .unit-type{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.5rem;}
+.unit-block .unit-stats{display:flex;gap:1.5rem;justify-content:center;}
+.stat{text-align:center;}
+.stat-value{font-family:'Bakbak One',sans-serif;font-size:1.5rem;color:var(--gold);display:block;}
+.stat-label{font-size:0.62rem;color:rgba(255,255,255,0.75);letter-spacing:1px;text-transform:uppercase;margin-top:0.15rem;}
+sec{display:block;padding:2.5rem 1.5rem;max-width:900px;margin:0 auto;}
+.stag{font-size:0.65rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.4rem;}
+h2{font-family:'Bakbak One',sans-serif;font-size:1.5rem;color:var(--green-dark);margin-bottom:1.25rem;}
+hr{border:none;border-top:1px solid rgba(0,0,0,0.08);}
+.historia{background:white;border-radius:12px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;border-left:4px solid var(--gold);}
+.historia h3{font-family:'Bakbak One',sans-serif;font-size:1rem;color:var(--green-dark);margin-bottom:0.5rem;}
+.historia p{font-size:0.85rem;color:#555;line-height:1.7;}
+.depto-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;align-items:start;}
+.depto-info p{font-size:0.88rem;line-height:1.7;color:#444;margin-bottom:0.75rem;}
+.am-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.5rem;}
+.am{background:white;border-radius:8px;padding:0.6rem 0.8rem;font-size:0.8rem;font-weight:500;border:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;gap:0.4rem;}
+.am.gold{border-color:var(--gold);background:rgba(201,168,76,0.06);}
+.mstats{display:grid;grid-template-columns:repeat(3,1fr);gap:0.75rem;margin-bottom:1.5rem;}
+.mstat{background:white;border-radius:10px;padding:1rem;text-align:center;border:1px solid rgba(0,0,0,0.06);}
+.mstat .v{font-family:'Bakbak One',sans-serif;font-size:1.4rem;color:var(--green);}
+.mstat .l{font-size:0.7rem;color:#444;margin-top:0.2rem;}
+table.mt{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;font-size:0.8rem;margin-top:0.75rem;}
+table.mt th{background:var(--green);color:white;padding:0.6rem 0.8rem;text-align:left;font-size:0.7rem;text-transform:uppercase;}
+table.mt td{padding:0.6rem 0.8rem;border-bottom:1px solid rgba(0,0,0,0.05);}
+table.mt tr:last-child td{border-bottom:none;}
+table.mt tr:nth-child(even) td{background:rgba(242,239,235,0.5);}
+.hlrow td{background:rgba(201,168,76,0.1)!important;font-weight:600;}
+.mnote{font-size:0.72rem;color:#555;margin-top:0.75rem;font-style:italic;}
+/* Separador de tipo de unidad */
+.unit-section-header{background:var(--green);color:white;border-radius:10px;padding:0.75rem 1.25rem;margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem;}
+.unit-section-header .unit-pill{font-family:'Bakbak One',sans-serif;font-size:1rem;letter-spacing:1px;}
+.unit-section-header .unit-sub{font-size:0.75rem;color:rgba(255,255,255,0.80);}
+/* Nota de gastos */
+.exp-note{background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);border-radius:8px;padding:0.65rem 1rem;font-size:0.77rem;color:#555;margin-bottom:1.25rem;}
+.hint{font-size:0.85rem;color:#555;line-height:1.6;margin-bottom:1.25rem;}
+.hw{overflow-x:auto;margin-bottom:1.75rem;}
+table.hm{border-collapse:collapse;font-size:0.72rem;min-width:580px;width:100%;}
+table.hm th{padding:0.45rem 0.6rem;text-align:center;background:var(--green);color:white;font-weight:500;font-size:0.7rem;}
+table.hm th:first-child{text-align:left;min-width:52px;}
+table.hm td{padding:0.4rem 0.55rem;text-align:center;border:1px solid rgba(255,255,255,0.2);}
+.btitle{font-size:0.82rem;font-weight:600;color:var(--green-dark);margin:1.5rem 0 0.6rem;}
+table.bt{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;font-size:0.82rem;}
+table.bt th{background:var(--green);color:white;padding:0.6rem 0.9rem;text-align:right;font-size:0.7rem;text-transform:uppercase;}
+table.bt th:first-child{text-align:left;}
+table.bt td{padding:0.55rem 0.9rem;border-bottom:1px solid rgba(0,0,0,0.05);text-align:right;}
+table.bt td:first-child{text-align:left;color:#666;}
+table.bt tr:nth-child(even) td{background:rgba(242,239,235,0.4);}
+table.bt .sub td{border-top:1px solid rgba(0,0,0,0.1);font-weight:600;}
+table.bt .sub td:first-child{color:var(--green-dark);}
+table.bt .tot td{background:var(--green)!important;color:white;font-weight:700;}
+.neg{color:#c0392b!important;}
+table.mly{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;font-size:0.82rem;margin-bottom:1.5rem;}
+table.mly th{background:var(--green);color:white;padding:0.6rem 0.9rem;text-align:right;font-size:0.7rem;text-transform:uppercase;}
+table.mly th:first-child{text-align:left;}
+table.mly td{padding:0.55rem 0.9rem;border-bottom:1px solid rgba(0,0,0,0.05);text-align:right;}
+table.mly td:first-child{text-align:left;font-weight:500;}
+table.mly tr:nth-child(even) td{background:rgba(242,239,235,0.5);}
+table.mly .tr td{background:var(--gold)!important;color:white;font-weight:700;}
+.cc{background:white;border-radius:14px;padding:1.25rem;margin-bottom:1.5rem;}
+.ct{font-size:0.72rem;color:#555;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:1px;}
+.sgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;}
+.si{background:white;border-radius:10px;padding:1.1rem;border:1px solid rgba(0,0,0,0.06);}
+.si h4{font-size:0.85rem;font-weight:600;color:var(--green-dark);margin-bottom:0.4rem;}
+.si p{font-size:0.78rem;color:#555;line-height:1.6;}
+footer{background:var(--green-dark);color:rgba(255,255,255,0.80);text-align:center;padding:1.5rem;font-size:0.75rem;}
+footer strong{color:var(--gold);}
+table.mt td,table.hm td,table.bt td,table.mly td{color:#222;}
+.am{color:#333;}
+@media(max-width:640px){.depto-grid{grid-template-columns:1fr;}.mstats{grid-template-columns:repeat(2,1fr);}.sgrid{grid-template-columns:1fr;}.hero-units{flex-direction:column;align-items:center;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">DISTRITO BA</span>
+  <div class="nav-links">
+    <a href="#edificio">El Edificio</a>
+    <a href="#mercado">Mercado</a>
+    <a href="#estudio">Estudio</a>
+    <a href="#dosAmb">2 Ambientes</a>
+    <a href="#est">Estrategia</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-badge">Proyección Airbnb · Distrito BA</div>
+  <h1>MET Plaza · Junín 800 · Recoleta</h1>
+  <p>Metropolitan Plaza · Estudios y 2 ambientes · Frente a Plaza Houssay · CABA</p>
+  <div class="hero-units">
+    <div class="unit-block">
+      <div class="unit-type">Estudio · 2 huéspedes</div>
+      <div class="unit-stats">
+        <div class="stat"><span class="stat-value">$70/n</span><span class="stat-label">Precio base</span></div>
+        <div class="stat"><span class="stat-value">80%</span><span class="stat-label">Ocupación obj.</span></div>
+        <div class="stat"><span class="stat-value">$1.136/mes</span><span class="stat-label">Neto (con PM)</span></div>
+      </div>
+    </div>
+    <div class="unit-block">
+      <div class="unit-type">2 Ambientes · 2–3 huéspedes</div>
+      <div class="unit-stats">
+        <div class="stat"><span class="stat-value">$80/n</span><span class="stat-label">Precio base</span></div>
+        <div class="stat"><span class="stat-value">80%</span><span class="stat-label">Ocupación obj.</span></div>
+        <div class="stat"><span class="stat-value">$1.298/mes</span><span class="stat-label">Neto (con PM)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<!-- ── 01 · El Edificio ── -->
+<sec id="edificio">
+  <p class="stag">01 · El Edificio</p>
+  <h2>Metropolitan Plaza</h2>
+
+  <div class="historia">
+    <h3>🏢 MET Plaza — Torre premium en el corazón de Barrio Norte</h3>
+    <p>El Metropolitan Plaza es un edificio residencial de categoría en Junín 800, Recoleta / Barrio Norte, ubicado directamente frente a la Plaza Houssay y a pasos de las facultades de Medicina y Ciencias Económicas de la UBA, el Hospital Italiano y la Línea D de subte. 19 pisos con estudios, 2 y 3 ambientes. La combinación de ubicación estratégica (demanda académica, corporativa y turística todo el año) con un paquete completo de amenities de hotel lo posiciona como uno de los edificios más competitivos de Recoleta para alquiler temporario.</p>
+  </div>
+
+  <div class="depto-grid">
+    <div class="depto-info">
+      <p>Tipologías disponibles: estudios y departamentos de 2 ambientes. Todas las unidades se benefician de la infraestructura completa del edificio, que eleva la propuesta de valor por encima de apartamentos de similares dimensiones sin amenities.</p>
+      <p>El perfil del huésped es amplio: profesionales de salud en rotación en el Hospital Italiano, estudiantes de posgrado internacionales, turistas que priorizan la seguridad y el confort, y ejecutivos en estadías de media duración (7–21 noches). La demanda es sostenida todo el año por la actividad universitaria y hospitalaria.</p>
+      <p>Gestión actual: Casalia Stays opera listings de este edificio con calificaciones de 4,64 a 4,83★. La gestión con Distrito BA partirá de un contexto de mercado validado.</p>
+    </div>
+    <div class="am-grid">
+      <div class="am gold">🏆 Torre premium 19 pisos</div>
+      <div class="am gold">📍 Frente a Plaza Houssay</div>
+      <div class="am gold">🏋️ Gimnasio completo</div>
+      <div class="am gold">🧖 Sauna</div>
+      <div class="am gold">🔥 Terraza con parrillas</div>
+      <div class="am gold">🎉 SUM</div>
+      <div class="am">🔒 Seguridad 24 horas</div>
+      <div class="am">🧺 Laundry en edificio</div>
+      <div class="am">🚇 Subte Línea D a pasos</div>
+      <div class="am">🏥 Hospital Italiano 5 min</div>
+      <div class="am">🎓 UBA Medicina / Económicas</div>
+      <div class="am">📶 WiFi alta velocidad</div>
+    </div>
+  </div>
+
+  <div class="exp-note">
+    ⚠️ <strong>Nota:</strong> Las expensas del edificio no se contemplan en esta proyección. El propietario deberá descontarlas del neto calculado al confirmar los valores reales.
+  </div>
+</sec>
+
+<hr>
+
+<!-- ── 02 · Mercado ── -->
+<sec id="mercado">
+  <p class="stag">02 · Mercado</p>
+  <h2>Análisis de mercado — Recoleta</h2>
+  <div class="mstats">
+    <div class="mstat"><div class="v">$62</div><div class="l">ADR mediana studios Recoleta con amenities (oct 2026)</div></div>
+    <div class="mstat"><div class="v">$53–$88</div><div class="l">Rango activo studios Recoleta con gym/security</div></div>
+    <div class="mstat"><div class="v">$82</div><div class="l">ADR mediana 2 ambientes Recoleta con amenities</div></div>
+    <div class="mstat"><div class="v">$71–$95</div><div class="l">Rango activo 2 amb Recoleta con gym/security</div></div>
+    <div class="mstat"><div class="v">75–82%</div><div class="l">Ocupación típica Recoleta / Barrio Norte</div></div>
+    <div class="mstat"><div class="v">Alta</div><div class="l">Demanda sostenida · Houssay / Medicina / Hospital</div></div>
+  </div>
+  <table class="mt">
+    <thead><tr><th>Segmento</th><th>ADR</th><th>Ocupación</th><th>Notas</th></tr></thead>
+    <tbody>
+      <tr><td>Studio Recoleta · sin amenities · básico</td><td>~$39–53/n</td><td>65–72%</td><td>Sin diferenciador de edificio</td></tr>
+      <tr><td>Studio Recoleta · con gym y pool</td><td>~$53–73/n</td><td>72–80%</td><td>Comfortable Studio / Cozy Studio II observados</td></tr>
+      <tr><td>Studio moderno con gym, sauna y parrilla</td><td>~$73–88/n</td><td>78–85%</td><td>Amenities premium (más cercano a MET Plaza)</td></tr>
+      <tr class="hlrow"><td><strong>MET Plaza Estudio — escenario base</strong></td><td><strong>$70/n</strong></td><td><strong>80%</strong></td><td>Gym + sauna + parrilla + seg 24h + ubicación</td></tr>
+      <tr><td>2 ambientes Recoleta · sin amenities</td><td>~$45–78/n</td><td>65–75%</td><td>Depto estándar sin diferenciador de edificio</td></tr>
+      <tr><td>2 amb Recoleta · con gym / seg / parrilla</td><td>~$85–95/n</td><td>75–82%</td><td>"Lo Mejor De Recoleta" ($88) · "Modern Prime" ($95)</td></tr>
+      <tr class="hlrow"><td><strong>MET Plaza 2 Amb — escenario base</strong></td><td><strong>$80/n</strong></td><td><strong>80%</strong></td><td>Gym + sauna + parrilla + seg 24h + ubicación</td></tr>
+    </tbody>
+  </table>
+  <p class="mnote">Fuentes: CozyCozy · Airbnb (oct 2026) · Datos de mercado Recoleta / Barrio Norte octubre 2026</p>
+</sec>
+
+<hr>
+
+<!-- ══════════════════════════════════════════════════════
+     PROYECCIÓN A — ESTUDIO
+     ══════════════════════════════════════════════════════ -->
+<sec id="estudio">
+  <div class="unit-section-header">
+    <span class="unit-pill">ESTUDIO</span>
+    <span class="unit-sub">2 huéspedes · escenario base $70/n · 80% ocupación</span>
+  </div>
+  <p class="stag">03A · Mapa de calor</p>
+  <h2>¿Cuánto podés ganar? — Estudio</h2>
+  <p class="hint">Neto mensual para el propietario según precio/noche y ocupación. Descuenta comisión Airbnb (15,5%) + PM Distrito BA (20%). <em>No incluye expensas.</em> La celda <strong>★</strong> es el escenario base ($70/n · 80%).</p>
+  <div class="hw"><table class="hm" id="hmEstudio"></table></div>
+
+  <div class="btitle">Desglose del ingreso neto — Estudio</div>
+  <table class="bt">
+    <thead><tr>
+      <th>Concepto</th>
+      <th>Conservador<br><small>$55/n · 75%</small></th>
+      <th>Base<br><small>$70/n · 80%</small></th>
+      <th>Optimista<br><small>$85/n · 85%</small></th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Ingreso bruto mensual</td><td>$1.238</td><td>$1.680</td><td>$2.168</td></tr>
+      <tr><td class="neg">— Comisión Airbnb (15,5%)</td><td class="neg">−$192</td><td class="neg">−$260</td><td class="neg">−$336</td></tr>
+      <tr class="sub"><td>= Neto post-comisión</td><td>$1.046</td><td>$1.420</td><td>$1.832</td></tr>
+      <tr><td class="neg">— PM Distrito BA (20%)</td><td class="neg">−$209</td><td class="neg">−$284</td><td class="neg">−$366</td></tr>
+      <tr class="sub"><td>= Neto post-PM</td><td>$837</td><td>$1.136</td><td>$1.466</td></tr>
+      <tr><td>— Gastos mensuales</td><td>No contemplados</td><td>No contemplados</td><td>No contemplados</td></tr>
+      <tr class="tot"><td>= Neto mensual propietario (con PM)</td><td>$837</td><td>$1.136</td><td>$1.466</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.72rem;color:#888;margin-top:0.6rem;">Sin PM (si el propietario gestiona): $1.046 / $1.420 / $1.832 respectivamente.</p>
+
+  <p class="stag" style="margin-top:2rem;">04A · Proyección 12M</p>
+  <h2>Proyección mensual — Estudio · escenario base ($70/n · 80%)</h2>
+  <table class="mly" id="mlyTblEstudio">
+    <thead><tr>
+      <th>Mes</th>
+      <th style="text-align:right">Factor</th>
+      <th style="text-align:right">Bruto</th>
+      <th style="text-align:right">Neto sin PM</th>
+      <th style="text-align:right">Neto con PM</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+  <div class="cc"><div class="ct">Ingresos anuales por escenario — Estudio (USD)</div><div id="chartEstudio"></div></div>
+</sec>
+
+<hr>
+
+<!-- ══════════════════════════════════════════════════════
+     PROYECCIÓN B — 2 AMBIENTES
+     ══════════════════════════════════════════════════════ -->
+<sec id="dosAmb">
+  <div class="unit-section-header">
+    <span class="unit-pill">2 AMBIENTES</span>
+    <span class="unit-sub">2–3 huéspedes · escenario base $80/n · 80% ocupación</span>
+  </div>
+  <p class="stag">03B · Mapa de calor</p>
+  <h2>¿Cuánto podés ganar? — 2 Ambientes</h2>
+  <p class="hint">Neto mensual para el propietario según precio/noche y ocupación. Descuenta comisión Airbnb (15,5%) + PM Distrito BA (20%). <em>No incluye expensas.</em> La celda <strong>★</strong> es el escenario base ($80/n · 80%).</p>
+  <div class="hw"><table class="hm" id="hmDosAmb"></table></div>
+
+  <div class="btitle">Desglose del ingreso neto — 2 Ambientes</div>
+  <table class="bt">
+    <thead><tr>
+      <th>Concepto</th>
+      <th>Conservador<br><small>$65/n · 75%</small></th>
+      <th>Base<br><small>$80/n · 80%</small></th>
+      <th>Optimista<br><small>$95/n · 85%</small></th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Ingreso bruto mensual</td><td>$1.463</td><td>$1.920</td><td>$2.423</td></tr>
+      <tr><td class="neg">— Comisión Airbnb (15,5%)</td><td class="neg">−$227</td><td class="neg">−$298</td><td class="neg">−$376</td></tr>
+      <tr class="sub"><td>= Neto post-comisión</td><td>$1.236</td><td>$1.622</td><td>$2.047</td></tr>
+      <tr><td class="neg">— PM Distrito BA (20%)</td><td class="neg">−$247</td><td class="neg">−$325</td><td class="neg">−$409</td></tr>
+      <tr class="sub"><td>= Neto post-PM</td><td>$989</td><td>$1.298</td><td>$1.638</td></tr>
+      <tr><td>— Gastos mensuales</td><td>No contemplados</td><td>No contemplados</td><td>No contemplados</td></tr>
+      <tr class="tot"><td>= Neto mensual propietario (con PM)</td><td>$989</td><td>$1.298</td><td>$1.638</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.72rem;color:#888;margin-top:0.6rem;">Sin PM (si el propietario gestiona): $1.236 / $1.622 / $2.047 respectivamente.</p>
+
+  <p class="stag" style="margin-top:2rem;">04B · Proyección 12M</p>
+  <h2>Proyección mensual — 2 Ambientes · escenario base</h2>
+  <table class="mly" id="mlyTblDosAmb">
+    <thead><tr>
+      <th>Mes</th>
+      <th style="text-align:right">Factor</th>
+      <th style="text-align:right">Bruto</th>
+      <th style="text-align:right">Neto sin PM</th>
+      <th style="text-align:right">Neto con PM</th>
+    </tr></thead>
+    <tbody></tbody>
+  </table>
+  <div class="cc"><div class="ct">Ingresos anuales por escenario — 2 Ambientes (USD)</div><div id="chartDosAmb"></div></div>
+</sec>
+
+<hr>
+
+<!-- ── 05 · Estrategia ── -->
+<sec id="est">
+  <p class="stag">05 · Estrategia</p>
+  <h2>Estrategia de gestión</h2>
+  <div class="sgrid">
+    <div class="si">
+      <h4>🏠 Propietario como HOST PRINCIPAL</h4>
+      <p>El anuncio debe estar a nombre del dueño del departamento. Distrito BA opera como <strong>co-host</strong>. Si fuera al revés, al cambiar de gestión el anuncio se elimina y se pierden todas las reseñas acumuladas —volver a empezar desde cero implica meses de pricing agresivo para recuperar posicionamiento.</p>
+    </div>
+    <div class="si">
+      <h4>🏢 El edificio como diferenciador</h4>
+      <p>La combinación de sauna, gimnasio, terraza con parrillas y seguridad 24h posiciona a MET Plaza en el segmento premium de Recoleta. El anuncio debe comunicar estas amenidades desde las primeras fotos y el título: huéspedes que buscan esta experiencia están dispuestos a pagar $15–25 más por noche que en un depto sin amenities.</p>
+    </div>
+    <div class="si">
+      <h4>📍 Segmento: salud, academia y negocios</h4>
+      <p>La ubicación frente a Plaza Houssay, a pasos del Hospital Italiano y las facultades de UBA genera una demanda específica de alta calidad: médicos en rotación, investigadores visitantes, estudiantes de posgrado internacionales. Estadías de 7–30 noches con bajo desgaste. Comunicar la proximidad a estas instituciones en el anuncio activa este segmento.</p>
+    </div>
+    <div class="si">
+      <h4>💰 Pricing por capas</h4>
+      <p>Para el estudio: base $68/n para 2 huéspedes. Para el 2 ambientes: base $80/n para 2 huéspedes, con cargo extra de $12–18/noche para el 3er huésped. En temporada alta (Dic–Feb, Jul) aplicar multiplicador dinámico de 1,10–1,15× sobre el precio base.</p>
+    </div>
+    <div class="si">
+      <h4>📸 Fotografía que muestre el edificio</h4>
+      <p>El valor diferencial está en los espacios comunes: la terraza con parrillas con vistas, el gimnasio y la pileta. Incluir fotos de amenidades en el anuncio es esencial —los huéspedes que buscan estas comodidades hacen clic específicamente en esas imágenes. Invertir en un fotógrafo especializado en arquitectura/interiores es altamente rentable.</p>
+    </div>
+    <div class="si">
+      <h4>📈 Roadmap de precio</h4>
+      <p>Arrancar a <strong>$55–60/n (estudio) y $68–72/n (2 amb)</strong> para acumular las primeras <strong>10 reseñas de 5 estrellas</strong> y obtener el badge Guest Favorite. Luego subir $3–5/noche cada 3–4 semanas hasta alcanzar el precio base. En temporada alta apuntar a los precios optimistas.</p>
+    </div>
+  </div>
+
+  <div class="btitle" style="margin-top:1.75rem;">Roadmap de posicionamiento</div>
+  <div style="background:white;border-radius:10px;padding:1.25rem;border:1px solid rgba(0,0,0,0.06);">
+    <p style="font-size:0.82rem;color:#444;line-height:1.7;margin-bottom:1.25rem;">Los precios base no se logran desde el día 1 —Airbnb penaliza en posicionamiento a los anuncios nuevos sin reseñas. El camino es sistemático: primeras reservas a precio competitivo → acumular calificaciones → escalar gradualmente.</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:0.75rem;">
+      <div style="border-left:3px solid var(--gold);padding-left:0.75rem;">
+        <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:600;margin-bottom:0.3rem;">Fase 1 · Mes 1–2</div>
+        <div style="font-size:0.82rem;font-weight:600;color:var(--green-dark);margin-bottom:0.25rem;">Arranque</div>
+        <p style="font-size:0.75rem;color:#555;line-height:1.5;">Publicar por debajo del mercado. Prioridad: primeras reservas y calificaciones 5★.</p>
+      </div>
+      <div style="border-left:3px solid var(--gold);padding-left:0.75rem;">
+        <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:600;margin-bottom:0.3rem;">Fase 2 · Mes 2–4</div>
+        <div style="font-size:0.82rem;font-weight:600;color:var(--green-dark);margin-bottom:0.25rem;">Guest Favorite ⭐</div>
+        <p style="font-size:0.75rem;color:#555;line-height:1.5;">Con <strong>10 calificaciones de 5 estrellas</strong>, Airbnb otorga el badge. Mayor visibilidad.</p>
+      </div>
+      <div style="border-left:3px solid var(--gold);padding-left:0.75rem;">
+        <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--gold);font-weight:600;margin-bottom:0.3rem;">Fase 3 · Mes 3–6</div>
+        <div style="font-size:0.82rem;font-weight:600;color:var(--green-dark);margin-bottom:0.25rem;">Escalado gradual</div>
+        <p style="font-size:0.75rem;color:#555;line-height:1.5;">Subir <strong>$3–5/noche cada 3–4 semanas</strong>. Si la ocupación cae del 75%, pausar la suba.</p>
+      </div>
+      <div style="border-left:3px solid var(--green);padding-left:0.75rem;">
+        <div style="font-size:0.65rem;text-transform:uppercase;letter-spacing:1px;color:var(--green);font-weight:600;margin-bottom:0.3rem;">Fase 4 · Mes 6+</div>
+        <div style="font-size:0.82rem;font-weight:600;color:var(--green-dark);margin-bottom:0.25rem;">Precio óptimo</div>
+        <p style="font-size:0.75rem;color:#555;line-height:1.5;">Precios base / optimistas con badge activo, reviews consolidadas y pricing dinámico.</p>
+      </div>
+    </div>
+  </div>
+</sec>
+
+<footer>
+  <strong>Distrito BA</strong> · Gestión profesional de alquileres temporarios<br>
+  <span style="margin-top:0.4rem;display:block;">CozyCozy · Airbnb (oct 2026) · Datos de mercado Recoleta / Barrio Norte octubre 2026</span>
+</footer>
+
+<script>
+// ── CONSTANTES ESTUDIO ───────────────────────────────────────────────────────
+const E = {
+  prices:[50,55,60,65,70,75,80,85,90,95],
+  occs:  [0.70,0.75,0.78,0.80,0.82,0.85],
+  COM:0.155, PM:0.20, EXP:0,
+  BP:70, BO:0.80,
+  P_CONS:55,  OCC_CONS:0.75,
+  P_BASE:70,  OCC_BASE:0.80,
+  P_OPT:85,   OCC_OPT:0.85
+};
+
+// ── CONSTANTES 2 AMBIENTES ───────────────────────────────────────────────────
+const A = {
+  prices:[60,65,70,75,80,85,90,95,100,110],
+  occs:  [0.70,0.75,0.78,0.80,0.82,0.85],
+  COM:0.155, PM:0.20, EXP:0,
+  BP:80, BO:0.80,
+  P_CONS:65,  OCC_CONS:0.75,
+  P_BASE:80,  OCC_BASE:0.80,
+  P_OPT:95,   OCC_OPT:0.85
+};
+
+// ── FUNCIONES ────────────────────────────────────────────────────────────────
+function hc(v,mn,mx){
+  const r=Math.max(0,Math.min(1,(v-mn)/(mx-mn)));
+  return`rgb(${Math.round(255-r*209)},${Math.round(255-r*169)},${Math.round(255-r*203)})`;
+}
+
+function buildHeatmap(cfg, tableId){
+  const all=cfg.occs.flatMap(o=>cfg.prices.map(p=>p*30*o*(1-cfg.COM)*(1-cfg.PM)-cfg.EXP));
+  const mn=Math.min(...all),mx=Math.max(...all);
+  const t=document.getElementById(tableId);
+  const h=document.createElement('tr');
+  h.innerHTML='<th>Occ \\ $/n</th>'+cfg.prices.map(p=>`<th>$${p}</th>`).join('');
+  t.appendChild(h);
+  cfg.occs.forEach(o=>{
+    const tr=document.createElement('tr');
+    const th=document.createElement('th');
+    th.textContent=Math.round(o*100)+'%';
+    tr.appendChild(th);
+    cfg.prices.forEach(p=>{
+      const net=p*30*o*(1-cfg.COM)*(1-cfg.PM)-cfg.EXP;
+      const isB=p===cfg.BP&&o===cfg.BO;
+      const td=document.createElement('td');
+      const bg=isB?'#C9A84C':hc(net,mn,mx);
+      const ratio=(net-mn)/(mx-mn);
+      const fg=isB?'white':(ratio>0.55?'white':'#222');
+      td.style.cssText=`background:${bg};color:${fg};font-weight:${isB?700:400}`;
+      td.textContent=(isB?'★ ':'')+'$'+Math.round(net).toLocaleString('es-AR');
+      tr.appendChild(td);
+    });
+    t.appendChild(tr);
+  });
+}
+
+const MESES=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+const FACTOR=[1.10,1.15,1.05,0.95,0.85,0.85,1.10,0.90,0.90,0.90,1.10,1.15];
+
+function buildMonthlyTable(cfg, tableId){
+  const tbl=document.getElementById(tableId);
+  const bBruto=cfg.BP*30*cfg.BO;
+  const bPostCom=bBruto*(1-cfg.COM);
+  const bPostPM=bPostCom*(1-cfg.PM);
+  let tBr=0,tNs=0,tNc=0;
+  MESES.forEach(function(m,i){
+    const f=FACTOR[i];
+    const br=Math.round(bBruto*f);
+    const ns=Math.round(bPostCom*f - cfg.EXP);
+    const nc=Math.round(bPostPM*f - cfg.EXP);
+    tBr+=br; tNs+=ns; tNc+=nc;
+    const row=tbl.insertRow(-1);
+    row.insertCell(0).innerHTML=m;
+    const c1=row.insertCell(1); c1.style.textAlign='right'; c1.innerHTML=f.toFixed(2);
+    const c2=row.insertCell(2); c2.style.textAlign='right'; c2.innerHTML='$'+br.toLocaleString('es-AR');
+    const c3=row.insertCell(3); c3.style.textAlign='right'; c3.innerHTML='$'+ns.toLocaleString('es-AR');
+    const c4=row.insertCell(4); c4.style.textAlign='right'; c4.innerHTML='$'+nc.toLocaleString('es-AR');
+  });
+  const tot=tbl.insertRow(-1);
+  tot.className='tr';
+  tot.insertCell(0).innerHTML='TOTAL ANUAL';
+  const t1=tot.insertCell(1); t1.style.textAlign='right'; t1.innerHTML='12,00';
+  const t2=tot.insertCell(2); t2.style.textAlign='right'; t2.innerHTML='$'+tBr.toLocaleString('es-AR');
+  const t3=tot.insertCell(3); t3.style.textAlign='right'; t3.innerHTML='$'+tNs.toLocaleString('es-AR');
+  const t4=tot.insertCell(4); t4.style.textAlign='right'; t4.innerHTML='$'+tNc.toLocaleString('es-AR');
+}
+
+function calcAnual(cfg, price, occ){
+  const mB=price*30*occ;
+  const postCom=mB*(1-cfg.COM);
+  const postPM=postCom*(1-cfg.PM);
+  let tBr=0,tNs=0,tNc=0;
+  FACTOR.forEach(f=>{
+    tBr+=Math.round(mB*f);
+    tNs+=Math.round(postCom*f - cfg.EXP);
+    tNc+=Math.round(postPM*f - cfg.EXP);
+  });
+  return{bruto:tBr,sinPM:tNs,conPM:tNc};
+}
+
+function buildChart(cfg, chartId){
+  const cons=calcAnual(cfg,cfg.P_CONS,cfg.OCC_CONS);
+  const base=calcAnual(cfg,cfg.P_BASE,cfg.OCC_BASE);
+  const opt =calcAnual(cfg,cfg.P_OPT, cfg.OCC_OPT);
+  const scenarios=[
+    {lbl:['Conservador',`$${cfg.P_CONS} · ${Math.round(cfg.OCC_CONS*100)}%`], b:cons.bruto, s:cons.sinPM, c:cons.conPM},
+    {lbl:['Base',        `$${cfg.P_BASE} · ${Math.round(cfg.OCC_BASE*100)}%`], b:base.bruto, s:base.sinPM, c:base.conPM},
+    {lbl:['Optimista',   `$${cfg.P_OPT} · ${Math.round(cfg.OCC_OPT*100)}%`],  b:opt.bruto,  s:opt.sinPM,  c:opt.conPM}
+  ];
+  const maxV=Math.max(...scenarios.map(s=>s.b));
+  const W=820,H=220,PAD_L=62,PAD_R=16,PAD_T=12,PAD_B=52;
+  const chartW=W-PAD_L-PAD_R, chartH=H-PAD_T-PAD_B;
+  const colors={b:'rgba(100,149,237,0.75)',s:'rgba(201,168,76,0.9)',c:'rgba(46,86,52,0.85)'};
+  const nScen=scenarios.length, nBars=3, gap=18, groupGap=32;
+  const totalGaps=nScen*(nBars-1)*gap+(nScen-1)*groupGap;
+  const barW=Math.floor((chartW-totalGaps)/(nScen*nBars));
+  function fmt(v){return'$'+(v/1000).toFixed(0)+'k';}
+
+  let svg=`<svg viewBox="0 0 ${W} ${H}" xmlns="http://www.w3.org/2000/svg" style="width:100%;font-family:Inter,sans-serif">`;
+  [0,0.25,0.5,0.75,1].forEach(t=>{
+    const y=PAD_T+chartH*t;
+    const val=Math.round(maxV*(1-t));
+    svg+=`<line x1="${PAD_L}" y1="${y}" x2="${W-PAD_R}" y2="${y}" stroke="#eee" stroke-width="1"/>`;
+    svg+=`<text x="${PAD_L-6}" y="${y+4}" text-anchor="end" font-size="10" fill="#666">${fmt(val)}</text>`;
+  });
+  scenarios.forEach((sc,gi)=>{
+    const groupX=PAD_L+gi*(nBars*barW+(nBars-1)*gap+groupGap);
+    const vals=[sc.b,sc.s,sc.c];
+    const cols=[colors.b,colors.s,colors.c];
+    vals.forEach((v,bi)=>{
+      const x=groupX+bi*(barW+gap);
+      const bh=(v/maxV)*chartH;
+      const y=PAD_T+chartH-bh;
+      svg+=`<rect x="${x}" y="${y}" width="${barW}" height="${bh}" rx="3" fill="${cols[bi]}"/>`;
+      if(bh>18) svg+=`<text x="${x+barW/2}" y="${y+12}" text-anchor="middle" font-size="9" fill="white" font-weight="600">${fmt(v)}</text>`;
+    });
+    const cx=groupX+((nBars*barW+(nBars-1)*gap)/2);
+    svg+=`<text x="${cx}" y="${H-32}" text-anchor="middle" font-size="11" font-weight="600" fill="#333">${sc.lbl[0]}</text>`;
+    svg+=`<text x="${cx}" y="${H-18}" text-anchor="middle" font-size="10" fill="#555">${sc.lbl[1]}</text>`;
+  });
+  const legItems=[['Bruto',colors.b],['Neto sin PM',colors.s],['Neto con PM',colors.c]];
+  let lx=PAD_L;
+  legItems.forEach(([lbl,col])=>{
+    svg+=`<rect x="${lx}" y="2" width="10" height="10" rx="2" fill="${col}"/>`;
+    svg+=`<text x="${lx+14}" y="11" font-size="10" fill="#555">${lbl}</text>`;
+    lx+=lbl.length*6+28;
+  });
+  svg+='</svg>';
+  document.getElementById(chartId).innerHTML=svg;
+}
+
+// ── RENDER ───────────────────────────────────────────────────────────────────
+try { buildHeatmap(E, 'hmEstudio'); } catch(e){ console.error('hmEstudio',e); }
+try { buildHeatmap(A, 'hmDosAmb'); } catch(e){ console.error('hmDosAmb',e); }
+try { buildMonthlyTable(E, 'mlyTblEstudio'); } catch(e){ console.error('mlyE',e); }
+try { buildMonthlyTable(A, 'mlyTblDosAmb'); } catch(e){ console.error('mlyA',e); }
+try { buildChart(E, 'chartEstudio'); } catch(e){ console.error('chartE',e); }
+try { buildChart(A, 'chartDosAmb'); } catch(e){ console.error('chartA',e); }
+</script>
+</body>
+</html>
